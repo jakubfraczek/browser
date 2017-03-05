@@ -14,29 +14,29 @@ public class Browser extends Application {
 	private final String DEFAULT = "https://www.google.pl/";
 	private final WebEngine webEngine = browser.getEngine();
 
-	public static void main(final String[] args) {
-		Application.launch(args);
-	}
-
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		CenterPane center = new CenterPane(borderPane, webEngine, browser);
 		center.prepareCenter(DEFAULT);
-		
+
 		TopPane top = new TopPane(webEngine);
 		top.prepareTop(borderPane, DEFAULT);
 
 		LeftPane left = new LeftPane();
 		left.prepareLeft();
-		
+
 		BottomPane bottom = new BottomPane();
 		bottom.prepareBottom();
-		
+
 		RightPane right = new RightPane();
 		right.prepareRigth();
-		
+
 		primaryStage.setScene(new Scene(borderPane, 800, 600));
 		primaryStage.show();
-}
+	}
+
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
 
 }
